@@ -1,0 +1,20 @@
+---
+#---------------------------------------------------------
+# Secure Containers: 
+# http://redhatgov.io/workshops/security_containers
+#---------------------------------------------------------
+- name: Secure Containers | Configure instances
+  remote_user: "{{ system_user }}"
+  hosts: sec_nodes 
+  become: yes
+  roles:
+    - subscription_manager
+    - ansible_ssh_pipelining
+    - docker
+    - jq
+    - epel
+    - cockpit
+    - secure_containers
+    - zsh
+    - nodejs
+    - wetty 

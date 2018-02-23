@@ -1,0 +1,43 @@
+---
+#---------------------------------------------------------
+# OpenShift 101: 
+# http://redhatgov.io/workshops/openshift_101_dcmetromap/
+#---------------------------------------------------------
+
+PLACE HOLDER
+
+When AWS
+When GCC
+When Azure
+
+
+
+
+
+- name: OpenShift | Pre-installation
+  hosts: masters, nodes
+  become: yes
+  roles:
+    - openshift.prereq
+
+- name: OpenShift | Advanced installation
+  hosts: masters
+  roles:
+    - openshift.install
+
+- name: OpenShift | Configure cluster
+  hosts: masters
+  become: yes
+  roles:
+    - openshift.config
+
+- name: OpenShift | Wetty
+  hosts: wetty
+  become: yes
+  roles:
+    - epel
+    - nodejs
+    - wetty
+    - oc
+    - zsh
+    

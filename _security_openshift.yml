@@ -1,0 +1,21 @@
+---
+#---------------------------------------------------------
+# Secure OpenShift: 
+# http://redhatgov.io/workshops/security_openshift/
+#---------------------------------------------------------
+- name: Secure OpenShift | Configure instances
+  remote_user: "{{ system_user }}"
+  hosts: sec_nodes
+  become: yes
+  roles:
+    - subscription_manager
+    - ansible_ssh_pipelining
+    - docker
+    - jq
+    - epel
+    - cockpit
+    - oc
+    - secure_containers
+    - zsh
+    - nodejs
+    - wetty 

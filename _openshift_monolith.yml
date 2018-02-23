@@ -1,0 +1,21 @@
+---
+#---------------------------------------------------------
+# Strangling the Monolith: 
+# http://redhatgov.io/workshops/strangling_the_monolith/
+#---------------------------------------------------------
+- name: OpenShift | Pre-installation
+  hosts: openshift_masters, openshift_nodes
+  become: yes
+  roles:
+    - openshift.prereq
+
+- name: OpenShift | Advanced installation
+  hosts: openshift_masters
+  roles:
+    - openshift.install
+
+- name: OpenShift | Configure cluster
+  hosts: openshift_masters
+  become: yes
+  roles:
+    - openshift.config
