@@ -4,16 +4,26 @@
 # http://redhatgov.io/workshops/openshift_101_dcmetromap/
 #---------------------------------------------------------
 
-PLACE HOLDER
+# Infrastructure
+- name: Provision in AWS
+  hosts: localhost
+  roles:
+    - aws-infra-role
+  when: aws
 
-When AWS
-When GCC
-When Azure
+- name: Provision in Azure
+  hosts: localhost
+  roles:
+    - azure-infra-role
+  when: azure
 
+- name: Provision in GCC
+  hosts: localhost
+  roles:
+    - gcc-infra-role
+  when: gcc
 
-
-
-
+# Workshop
 - name: OpenShift | Pre-installation
   hosts: masters, nodes
   become: yes
